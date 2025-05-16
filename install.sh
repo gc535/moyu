@@ -30,7 +30,8 @@ chmod +x "$SCRIPT_DIR/moyu.sh" "$SCRIPT_DIR/moyu_go.py"
 
 # Create symlink to make command available system-wide
 echo "Adding 'moyu' command to system..."
-if [ -f /usr/local/bin/moyu ]; then
+sudo mkdir -p /usr/local/bin
+if [ -L /usr/local/bin/moyu ] || [ -f /usr/local/bin/moyu ]; then
     echo "Removing existing moyu command..."
     sudo rm /usr/local/bin/moyu
 fi
